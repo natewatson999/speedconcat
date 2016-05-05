@@ -1,6 +1,6 @@
 {
   "name": "speedconcat",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Provides faster concatenation of large numbers of strings.",
   "main": "code.js",
   "scripts": {

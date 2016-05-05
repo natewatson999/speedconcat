@@ -9,14 +9,12 @@ output.newConcatenator = function(initial){
     next: null
   };
   this.end = this.head;
-  this.segments = 1;
   this.append = function(addition){
     this.end.next = {
       value: addition,
       next: null
     };
     this.end = this.end.next;
-    this.segments++;
   };
   this.getResult = function(){
     while(this.head.next != null) {
@@ -25,7 +23,6 @@ output.newConcatenator = function(initial){
         if (workingNode.next != null) {
           workingNode.value = workingNode.value + workingNode.next.value;
           workingNode.next = workingNode.next.next;
-          this.segments--;
         }
         workingNode = workingNode.next;
       }
