@@ -15,11 +15,12 @@ output.newConcatenator = function(initial){
       value: addition,
       next: null
     };
+    this.end = this.end.next;
     this.segments++;
   };
   this.getResult = function(){
     while(this.head.next != null) {
-      var workingNode = head;
+      var workingNode = this.head;
       while (workingNode != null) {
         if (workingNode.next != null) {
           workingNode.value = workingNode.value + workingNode.next.value;
