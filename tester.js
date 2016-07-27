@@ -1,6 +1,6 @@
 var speedConcat = require("./code.js");
 var workingConcatenator = new speedConcat.newConcatenator("");
-var upperBound = 131072; 
+var upperBound = 64; 
 for (var index = 0; index < upperBound; index++) {
 	workingConcatenator.append(index);
 }

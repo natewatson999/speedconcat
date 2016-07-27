@@ -2,23 +2,30 @@ var output = {};
 output.newConcatenator = function(initial){
   if (initial==null) {
     initial="";
+  } else {
+    initial=initial+"";
   }
-  initial=initial+"";
-  this.head = {
+  var head = {
     value: initial,
     next: null
   };
-  this.end = this.head;
+  var end = head;
+  var self = this;
   this.append = function(addition){
-    this.end.next = {
+    if (addition=="") {
+       return self;
+    }
+    addition  = "" + addition;
+    end.next = {
       value: addition,
       next: null
     };
-    this.end = this.end.next;
+    end = end.next;
+    return self;
   };
   this.getResult = function(){
-    while(this.head.next != null) {
-      var workingNode = this.head;
+    while(head.next != null) {
+      var workingNode = head;
       while (workingNode != null) {
         if (workingNode.next != null) {
           workingNode.value = workingNode.value + workingNode.next.value;
@@ -27,7 +34,8 @@ output.newConcatenator = function(initial){
         workingNode = workingNode.next;
       }
     }
-    return this.head.value;
+    end = head;
+    return head.value;
   };
 };
 module.exports = exports = output;
