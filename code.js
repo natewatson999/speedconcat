@@ -12,10 +12,16 @@ output.newConcatenator = function(initial){
   var end = head;
   var self = this;
   this.append = function(addition){
+    if ((typeof addition) != "string") {
+      if ((typeof addition)== "object") {
+        addition = JSON.stringify(addition);
+      } {
+        addition = "" + addition;
+      }
+    }
     if (addition=="") {
        return self;
     }
-    addition  = "" + addition;
     end.next = {
       value: addition,
       next: null
