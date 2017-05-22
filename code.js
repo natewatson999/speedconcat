@@ -43,5 +43,6 @@ output.newConcatenator = function(initial){
     end = head;
     return head.value;
   };
+  return this;
 };
 module.exports = exports = output;
